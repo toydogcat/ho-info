@@ -5,6 +5,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    - cron: "0 */3 * * *"
 
 permissions:
   contents: read
@@ -25,13 +27,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch weather data
+        env:
+          CWA_API_KEY: ${{ secrets.CWA_API_KEY }}
+        run: node scripts/fetch-weather.mjs
+
+      - name: Prepare static site
+        run: |
+          mkdir -p _site/data
+          cp index.html weather.html metro.html bus.html styles.css script.js metrotaipeimap_tn.jpg _site/
+          cp data/weather.json _site/data/weather.json
+          touch _site/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./_site
 
       - name: Deploy to GitHub Pages
         id: deployment

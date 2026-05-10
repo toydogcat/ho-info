@@ -1,0 +1,441 @@
+:root {
+  --bg: #f5f7f8;
+  --panel: #ffffff;
+  --text: #18212a;
+  --muted: #65727e;
+  --border: #dce3e8;
+  --blue: #1769aa;
+  --green: #16835b;
+  --red: #d7333f;
+  --amber: #bc7a12;
+  --shadow: 0 14px 32px rgba(28, 42, 56, 0.09);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    "Noto Sans TC",
+    "PingFang TC",
+    "Microsoft JhengHei",
+    Arial,
+    sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(20px, 5vw, 64px);
+  background: rgba(245, 247, 248, 0.92);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.topbar h1,
+.section h2,
+.hero h2 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.topbar h1 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.section-nav a,
+.plain-link,
+.city-tab {
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+main {
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: 56px 0 36px;
+}
+
+.hero h2 {
+  max-width: 720px;
+  font-size: clamp(2rem, 5vw, 4.2rem);
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.hero-status {
+  display: grid;
+  gap: 8px;
+  min-width: 220px;
+}
+
+.hero-status span,
+.draft-badge,
+.weather-summary {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.hero-status span {
+  padding: 10px 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.section {
+  padding: 36px 0 48px;
+  border-top: 1px solid var(--border);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section h2 {
+  font-size: clamp(1.55rem, 3vw, 2.35rem);
+}
+
+.segmented {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #e9eef2;
+}
+
+.city-tab {
+  cursor: pointer;
+}
+
+.city-tab.active {
+  background: var(--blue);
+  color: #ffffff;
+  border-color: var(--blue);
+}
+
+.weather-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+.weather-summary strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.weather-summary span,
+.weather-summary p {
+  color: var(--muted);
+}
+
+.weather-summary p {
+  max-width: 560px;
+  margin: 0;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(128px, 1fr));
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.forecast-card,
+.bus-card,
+.metro-panel {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.forecast-card {
+  min-height: 184px;
+  padding: 16px;
+}
+
+.forecast-card .date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.forecast-card .icon {
+  margin: 12px 0 8px;
+  font-size: 2rem;
+}
+
+.forecast-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.temp {
+  color: var(--red);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.rain {
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.metro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 18px;
+  align-items: start;
+}
+
+.metro-map {
+  height: min(72vh, 720px);
+  margin: 0;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.metro-map img {
+  display: block;
+  width: 100%;
+  min-width: 720px;
+  height: auto;
+}
+
+.metro-panel {
+  padding: 18px;
+}
+
+.metro-panel h3,
+.bus-card h3 {
+  margin: 0 0 12px;
+}
+
+.info-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.line {
+  display: inline-grid;
+  place-items: center;
+  min-width: 30px;
+  height: 24px;
+  margin-right: 6px;
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+.line.red {
+  background: var(--red);
+}
+
+.line.blue {
+  background: var(--blue);
+}
+
+.line.brown {
+  background: var(--amber);
+}
+
+.line.green {
+  background: var(--green);
+}
+
+.draft-badge {
+  padding: 9px 12px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.bus-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.bus-card {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+}
+
+.bus-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bus-meta span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #edf3f6;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.stop-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stop-list li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.stop-dot {
+  width: 10px;
+  height: 10px;
+  margin: 7px auto 0;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 0 4px #dcebf7;
+}
+
+.bus-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+footer {
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 44px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .topbar,
+  .hero,
+  .section-heading,
+  .weather-summary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .topbar,
+  .section-heading,
+  .weather-summary {
+    display: flex;
+  }
+
+  .hero,
+  .metro-layout,
+  .bus-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-nav {
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .forecast-grid {
+    grid-template-columns: repeat(7, 148px);
+  }
+
+  .metro-map {
+    height: 62vh;
+  }
+}
+
+@media (max-width: 560px) {
+  main,
+  footer {
+    width: min(100% - 24px, 1160px);
+  }
+
+  .topbar {
+    padding: 14px 12px;
+  }
+
+  .hero {
+    padding-top: 34px;
+  }
+
+  .section-nav a,
+  .plain-link,
+  .city-tab {
+    padding-inline: 11px;
+    font-size: 0.92rem;
+  }
+}

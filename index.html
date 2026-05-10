@@ -8,14 +8,14 @@
   </head>
   <body>
     <header class="topbar">
-      <div>
+      <a class="brand" href="index.html">
         <p class="eyebrow">Taipei / Keelung</p>
         <h1>生活資訊快覽</h1>
-      </div>
-      <nav class="section-nav" aria-label="主要區塊">
-        <a href="#weather">天氣</a>
-        <a href="#metro">捷運</a>
-        <a href="#bus">公車</a>
+      </a>
+      <nav class="section-nav" aria-label="主要頁面">
+        <a href="weather.html">天氣</a>
+        <a href="metro.html">捷運</a>
+        <a href="bus.html">公車</a>
       </nav>
     </header>
 
@@ -25,7 +25,7 @@
           <p class="eyebrow">Prototype</p>
           <h2 id="hero-title">台北與基隆的一週天氣、捷運圖、公車站點稿</h2>
           <p>
-            目前是靜態資料稿，適合直接放到 GitHub Pages。天氣日期會依開啟當天自動往後排 7 天。
+            靜態資料稿，適合直接放到 GitHub Pages。三個功能拆成獨立頁面，手機上點選也比較順手。
           </p>
         </div>
         <div class="hero-status" aria-label="資料狀態">
@@ -35,67 +35,38 @@
         </div>
       </section>
 
-      <section class="section" id="weather" aria-labelledby="weather-title">
+      <section class="section" aria-labelledby="pages-title">
         <div class="section-heading">
           <div>
+            <p class="eyebrow">Sections</p>
+            <h2 id="pages-title">選擇資訊頁</h2>
+          </div>
+        </div>
+        <div class="home-grid">
+          <a class="page-card weather-card" href="weather.html">
+            <span class="page-icon" aria-hidden="true">☀️</span>
             <p class="eyebrow">Weather</p>
-            <h2 id="weather-title">一週天氣</h2>
-          </div>
-          <div class="segmented" role="tablist" aria-label="選擇城市">
-            <button class="city-tab active" type="button" data-city="taipei">台北</button>
-            <button class="city-tab" type="button" data-city="keelung">基隆</button>
-          </div>
-        </div>
-        <div class="weather-summary">
-          <div>
-            <strong id="weather-city">台北</strong>
-            <span id="weather-range">載入日期中</span>
-          </div>
-          <p id="weather-note">午後雲量增加，短暫陣雨機率偏高，外出建議帶傘。</p>
-        </div>
-        <div class="forecast-grid" id="forecast-list" aria-live="polite"></div>
-      </section>
-
-      <section class="section" id="metro" aria-labelledby="metro-title">
-        <div class="section-heading">
-          <div>
+            <h3>一週天氣</h3>
+            <p>台北、基隆切換，依今天自動排出未來 7 天。</p>
+          </a>
+          <a class="page-card metro-card" href="metro.html">
+            <span class="page-icon" aria-hidden="true">🚇</span>
             <p class="eyebrow">Metro</p>
-            <h2 id="metro-title">台北捷運</h2>
-          </div>
-          <a class="plain-link" href="metrotaipeimap_tn.jpg" target="_blank" rel="noreferrer">開啟原圖</a>
-        </div>
-        <div class="metro-layout">
-          <figure class="metro-map">
-            <img src="metrotaipeimap_tn.jpg" alt="台北捷運路線圖" />
-          </figure>
-          <aside class="metro-panel" aria-label="捷運重點">
-            <h3>常用轉乘提醒</h3>
-            <ul class="info-list">
-              <li><span class="line red">R</span> 淡水信義線可接石牌、士林、台北車站、象山。</li>
-              <li><span class="line blue">BL</span> 板南線可接台北車站、市政府、南港展覽館。</li>
-              <li><span class="line brown">BR</span> 文湖線可接松山機場、動物園、南港展覽館。</li>
-              <li><span class="line green">G</span> 松山新店線可接中山、南京復興、松山。</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section" id="bus" aria-labelledby="bus-title">
-        <div class="section-heading">
-          <div>
+            <h3>台北捷運</h3>
+            <p>放大檢視捷運圖，旁邊保留常用轉乘提醒。</p>
+          </a>
+          <a class="page-card bus-card-link" href="bus.html">
+            <span class="page-icon" aria-hidden="true">🚌</span>
             <p class="eyebrow">Bus</p>
-            <h2 id="bus-title">公車站點資訊</h2>
-          </div>
-          <span class="draft-badge">示意稿，未接即時 API</span>
+            <h3>公車站點</h3>
+            <p>645、紅12、紅19 的站點資訊稿與路線摘要。</p>
+          </a>
         </div>
-        <div class="bus-grid" id="bus-list"></div>
       </section>
     </main>
 
     <footer>
       <p>靜態網站稿，可部署到 GitHub Pages。即時天氣與交通 API 可於下一階段接入。</p>
     </footer>
-
-    <script src="script.js"></script>
   </body>
 </html>

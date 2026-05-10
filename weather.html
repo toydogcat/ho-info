@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一週天氣｜台北基隆生活資訊</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <p class="eyebrow">Taipei / Keelung</p>
+        <h1>生活資訊快覽</h1>
+      </a>
+      <nav class="section-nav" aria-label="主要頁面">
+        <a class="active" href="weather.html">天氣</a>
+        <a href="metro.html">捷運</a>
+        <a href="bus.html">公車</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-intro" aria-labelledby="weather-page-title">
+        <p class="eyebrow">Weather</p>
+        <h2 id="weather-page-title">一週天氣</h2>
+        <p>台北與基隆切換查看，日期會依開啟當天往後排 7 天。現在先用示意資料呈現版型。</p>
+      </section>
+
+      <section class="section compact" aria-labelledby="weather-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Forecast</p>
+            <h2 id="weather-title">7 天預報</h2>
+          </div>
+          <div class="segmented" role="tablist" aria-label="選擇城市">
+            <button class="city-tab active" type="button" data-city="taipei">台北</button>
+            <button class="city-tab" type="button" data-city="keelung">基隆</button>
+          </div>
+        </div>
+        <div class="weather-summary">
+          <div>
+            <strong id="weather-city">台北</strong>
+            <span id="weather-range">載入日期中</span>
+          </div>
+          <p id="weather-note">午後雲量增加，短暫陣雨機率偏高，外出建議帶傘。</p>
+        </div>
+        <div class="forecast-grid" id="forecast-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>天氣資料目前為稿件資料，下一階段可接中央氣象署開放資料。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

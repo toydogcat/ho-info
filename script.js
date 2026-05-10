@@ -77,10 +77,17 @@ function renderWeather(cityKey) {
   const today = new Date();
   const dates = profile.days.map((_, index) => addDays(today, index));
   const list = document.querySelector("#forecast-list");
+  const city = document.querySelector("#weather-city");
+  const note = document.querySelector("#weather-note");
+  const range = document.querySelector("#weather-range");
 
-  document.querySelector("#weather-city").textContent = profile.name;
-  document.querySelector("#weather-note").textContent = profile.note;
-  document.querySelector("#weather-range").textContent = `${dateFormatter.format(dates[0])} - ${dateFormatter.format(dates[6])}`;
+  if (!list || !city || !note || !range) {
+    return;
+  }
+
+  city.textContent = profile.name;
+  note.textContent = profile.note;
+  range.textContent = `${dateFormatter.format(dates[0])} - ${dateFormatter.format(dates[6])}`;
 
   list.innerHTML = profile.days
     .map(([label, low, high, rain, icon], index) => {
@@ -101,6 +108,10 @@ function renderWeather(cityKey) {
 
 function renderBusRoutes() {
   const busList = document.querySelector("#bus-list");
+
+  if (!busList) {
+    return;
+  }
 
   busList.innerHTML = busRoutes
     .map((route) => {
@@ -141,5 +152,8 @@ document.querySelectorAll(".city-tab").forEach((button) => {
   });
 });
 
-renderWeather("taipei");
+if (document.querySelector("#forecast-list")) {
+  renderWeather("taipei");
+}
+
 renderBusRoutes();

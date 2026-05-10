@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公車站點｜台北基隆生活資訊</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <p class="eyebrow">Taipei / Keelung</p>
+        <h1>生活資訊快覽</h1>
+      </a>
+      <nav class="section-nav" aria-label="主要頁面">
+        <a href="weather.html">天氣</a>
+        <a href="metro.html">捷運</a>
+        <a class="active" href="bus.html">公車</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-intro" aria-labelledby="bus-page-title">
+        <p class="eyebrow">Bus</p>
+        <h2 id="bus-page-title">公車站點資訊</h2>
+        <p>先放 645、紅12、紅19 的站點稿，讓版面與資訊層級先成形。</p>
+      </section>
+
+      <section class="section compact" aria-labelledby="bus-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Routes</p>
+            <h2 id="bus-title">精選路線</h2>
+          </div>
+          <span class="draft-badge">示意稿，未接即時 API</span>
+        </div>
+        <div class="bus-grid" id="bus-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>公車站點目前為稿件資料，下一階段可補完整雙向站序與首末班資訊。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
